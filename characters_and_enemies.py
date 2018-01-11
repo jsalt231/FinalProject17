@@ -1,9 +1,9 @@
 import random
 
 # Stats for chooseable characters
-leo_stats = {'str': 4, 'int': 4, 'agi': 4, 'cha': 4, 'def': 14, 'health': 100}
-joey_stats = {'str': 7, 'int': 1, 'agi': 5, 'cha': 3, 'def': 18, 'health': 110}
-vlad_stats = {'str': 2, 'int': 7, 'agi': 1, 'cha': 6, 'def': 10, 'health': 90}
+leo_stats = {'str': 4, 'int': 4, 'agi': 4, 'cha': 4, 'def': 13, 'wil': 13, 'health': 100}
+joey_stats = {'str': 7, 'int': 1, 'agi': 5, 'cha': 3, 'def': 16, 'wil': 10, 'health': 110}
+vlad_stats = {'str': 2, 'int': 7, 'agi': 1, 'cha': 6, 'def': 10, 'wil': 16, 'health': 90}
 
 # basic dice rolling function
 def dice(x):
@@ -46,26 +46,29 @@ def assignment():
 You have the following in your inventory:
     {player_inventory[0].title()}""")
 
+# enemy classes, basic combat system sorta
 class Tsar(object):
-    global attack_roll
     def __init__(self):
         self.stats = {'str': 7, 'int': 6, 'agi': 8, 'cha': 5, 'def': 20, 'health': 150}
-    def attack1(self):
-        print("The Tsar used the Spear of Romanov!")
+# Tsar class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+    def attack(self):
         x = dice(20)
-        attack_roll = x + self.stats['str']
+        y = dice(2)
+        if y == 1:
+            damage = dice(8) + dice(8) + dice(8)
+            attack_roll = x + self.stats['str']
+            print("The Tsar used the Spear of Romanov!")
+        if y == 2:
+            damage = dice(8) + dice(8) + dice(8)
+            attack_roll = x + self.stats['cha']
+            print("The Tsar used Cry for Unity!")
         if x == 20:
-            damage = 2*(dice(8) + dice(8) + dice(8))
+            damage = 2*damage
             player_stats['health'] -= damage
             print(f"The attack was a crit! You take {damage} damage!")
-        if not x == 20 and attack_roll > player_stats['def'] :
-            damage = dice(8) + dice(8) + dice(8)
-            print("The attack was successful! You take {damage} damage!")
+# attack_roll applied to either def or wil depending on the attack used
+        if x < 20 and ((y == 1 and attack_roll > player_stats['def']) or (y == 2 and attack_roll > player_stats['wil'])):
+            print(f"The attack was successful! You take {damage} damage!")
             player_stats['health'] -= damage
-        if attack_roll <= player_stats['def']:
-            print("The attack was unsuccessful! You take no damage!")
-
-
-
-
-
+        else:
+            print(f"The attack was unsuccessful! You take no damage!")
