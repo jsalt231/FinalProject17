@@ -1,5 +1,6 @@
 import time
 
+# Plot points and encounter setups with pauses for dramatic effect
 def authors_note():
     print('Welcome to Communist Revolution Simulator 1918!\nHours upon hours of work was put into this game to make it a...playable experience.\nI hope you have fun, good luck!')
     {time.sleep(2)}
