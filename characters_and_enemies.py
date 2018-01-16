@@ -76,7 +76,7 @@ class Tsar(object):
 class Grunt(object):
     def __init__(self):
         self.stats = {'str': 4, 'int': 2, 'agi': 3, 'cha': 2, 'def': 10, 'wil': 8, 'health': 30}
-# Tsar class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+# Grunt class' attack function, has two options using different stats and attacking different defense stat (wil or def)
     def attack(self):
         x = dice(20)
         y = dice(2)
@@ -102,7 +102,7 @@ class Grunt(object):
 class Rifle(object):
     def __init__(self):
         self.stats = {'str': 3, 'int': 6, 'agi': 2, 'cha': 4, 'def': 12, 'wil': 14, 'health': 35}
-# Tsar class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+# Rifle class' attack function, has two options using different stats and attacking different defense stat (wil or def)
     def attack(self):
         x = dice(20)
         y = dice(2)
