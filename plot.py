@@ -1,6 +1,6 @@
 import time
 
-# Plot points and encounter setups with pauses for dramatic effect (not many commens since it's just plot)
+# Plot points and encounter setups with pauses for dramatic effect (not many comments since it's just plot)
 def authors_note():
     print('Welcome to Communist Revolution Simulator 1918!\nHours upon hours of work was put into this game to make it a...playable experience.\nI hope you have fun, good luck!')
     {time.sleep(2)}
@@ -80,3 +80,4 @@ def ending5():
     print('Sadly, this is the end for you.\nYour revolution may die, but you will live on, a trophy of what once was.')
     time.sleep(3)
     print('THE END.')
+
