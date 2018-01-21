@@ -17,14 +17,13 @@ def assignment():
     global player_inventory
     while True:
         answer = input("Who would you like to play? Enter 1 for Leo, 2 for Joey, and 3 for Vlad\n")
-        answer = int(answer)
-        if answer == 1:
+        if answer == '1':
             player = 'leo'
             break
-        elif answer == 2:
+        elif answer == '2':
             player = 'joey'
             break
-        elif answer == 3:
+        elif answer == '3':
             player = 'vlad'
             break
         else:
@@ -50,7 +49,7 @@ You have the following in your inventory:
 class Tsar(object):
     def __init__(self):
         self.stats = {'str': 7, 'int': 6, 'agi': 8, 'cha': 5, 'def': 18, 'wil': 18, 'health': 150}
-# Tsar class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+# Tsar class' attack function, has two randomly selected options using different stats and attacking different defense stat (wil or def)
     def attack(self):
         x = dice(20)
         y = dice(2)
@@ -76,7 +75,7 @@ class Tsar(object):
 class Grunt(object):
     def __init__(self):
         self.stats = {'str': 4, 'int': 2, 'agi': 3, 'cha': 2, 'def': 10, 'wil': 8, 'health': 30}
-# Grunt class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+# Grunt class' attack function, has two randomly selected options using different stats and attacking different defense stat (wil or def)
     def attack(self):
         x = dice(20)
         y = dice(2)
@@ -102,7 +101,7 @@ class Grunt(object):
 class Rifle(object):
     def __init__(self):
         self.stats = {'str': 3, 'int': 6, 'agi': 2, 'cha': 4, 'def': 12, 'wil': 14, 'health': 35}
-# Rifle class' attack function, has two options using different stats and attacking different defense stat (wil or def)
+# Rifle class' attack function, has two random;y selected options using different stats and attacking different defense stat (wil or def)
     def attack(self):
         x = dice(20)
         y = dice(2)
@@ -124,3 +123,8 @@ class Rifle(object):
             player_stats['health'] -= damage
         else:
             print(f"The attack was unsuccessful! You take no damage!")
+
+# useless class added to make it harder to break the game
+class Stalling():
+    def __init__(self):
+        self.stats = {'def': 100}

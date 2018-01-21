@@ -12,7 +12,7 @@ def plot1():
 def plot2():
     print('Let us begin on our journey! You set out to the city of Petrograd, where the fighting is quite fierce!')
     {time.sleep(2)}
-    print('On the outskirts of the city, you see a Tsarist patrol! What do you do?')
+    print('On the outskirts of the city, you see a Tsarist patrol!')
 def plot3():
     print('Congrats, you survived the encounter, you may now enter the city!')
     time.sleep(1)
@@ -31,7 +31,7 @@ def ending1():
     time.sleep(3)
     print('THE END.')
 def ending2():
-    print('The Tsar has killed you, yet the struggle will live on!')
+    print('The Tsarists have killed you, yet the struggle will live on!')
     time.sleep(1)
     print('One tragedy after enough, again and again, the people will unite!')
     time.sleep(1)
