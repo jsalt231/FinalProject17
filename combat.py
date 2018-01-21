@@ -1,13 +1,16 @@
 import characters_and_enemies as game
 import time
 
+# function player uses to attack
 def player_attack():
-    attack = input('Which attack would you like to use?\nEnter \'1\' for your flag-spear, \'2\' for your bayonet, or \'3\' for you unadulterated anger')
+    attack = input('Which attack would you like to use?\nEnter \'1\' for your flag-spear, \'2\' for your bayonet, or \'3\' for you unadulterated anger\n')
     x = game.dice(20)
     damage = game.dice(10) + game.dice(10) + game.dice(10)
+# different options for attack depending on player choice
     if attack == '1':
         print('You used your flag-spear!')
         attack_roll = x + player_stats['agi']
+# inventory can give bonus to attack roll
         if 'flag' in player_inventory:
             attack_roll += 5
         if attack_roll > enemy.stats['def'] and not x == 20:
@@ -47,13 +50,16 @@ def player_attack():
     else:
         print('That is not an attack, your turn will be skipped :(')
 
+# first combat encounter
 def combat1():
     a = game.Grunt()
     b = game.Grunt()
     c = game.Rifle()
     d = game.Stalling()
+# while there are enemies alive
     while not (a.stats['health'] <= 0 and b.stats['health'] <= 0 and c.stats['health'] <= 0):
-        question = input('Who would you like to attack?\nEnter \'1\' for the leader (a rifleman), \'2\' for his sergeant (a grunt), or \'3\' for the private (another grunt)?')
+# chooses enemy to attack
+        question = input('Who would you like to attack?\nEnter \'1\' for the leader (a rifleman), \'2\' for his sergeant (a grunt), or \'3\' for the private (another grunt)?\n')
         if question == '1':
             enemy = c
             print('You are attacking the leader!')
@@ -67,8 +73,10 @@ def combat1():
             enemy = d
             print('You are attacking nothing and wasting your turn, good job!')
         time.sleep(1)
+# attacks happen
         player_attack()
         time.sleep(1)
+# enemy olnly attacks if alive
         while a.stats['health'] > 0:
             time.sleep(1)
             a.attack()
@@ -79,8 +87,10 @@ def combat1():
             time.sleep(1)
             b.attack
 
+# second combat encounter
 def combat2():
     e = game.Tsar()
+    enemy = e
     while e.stats['health']:
         player_attack()
         time.sleep(1)
